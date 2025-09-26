@@ -39,32 +39,83 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <meta charset="UTF-8">
 <title>Add Student</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card {
+        border-radius: 20px;
+        box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    }
+    .form-control, .form-select, textarea {
+        border-radius: 12px;
+    }
+    .btn-primary {
+        border-radius: 12px;
+        font-weight: bold;
+        padding: 10px 20px;
+    }
+    .btn-secondary {
+        border-radius: 12px;
+        padding: 10px 20px;
+    }
+</style>
 </head>
-<body class="container mt-5">
+<body>
 
-<h2>Add New Student</h2>
-<?= $message ?? '' ?>
-<form method="POST" class="w-75">
-    <div class="row">
-        <div class="col-md-6 mb-3"><label>Student ID</label><input type="text" name="student_id" class="form-control" required></div>
-        <div class="col-md-6 mb-3"><label>Name</label><input type="text" name="name" class="form-control" required></div>
-        <div class="col-md-6 mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
-        <div class="col-md-6 mb-3"><label>Course</label><input type="text" name="course" class="form-control" required></div>
-        <div class="col-md-4 mb-3"><label>Age</label><input type="number" name="age" class="form-control" required></div>
-        <div class="col-md-4 mb-3"><label>Gender</label>
-            <select name="gender" class="form-select" required>
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
+<div class="card p-4 w-75">
+    <h2 class="text-center text-primary mb-4">➕ Add New Student</h2>
+    <?= $message ?? '' ?>
+    <form method="POST">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">Student ID</label>
+                <input type="text" name="student_id" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">Course</label>
+                <input type="text" name="course" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">Age</label>
+                <input type="number" name="age" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">Gender</label>
+                <select name="gender" class="form-select" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">♂ Male</option>
+                    <option value="Female">♀ Female</option>
+                    <option value="Other">⚧ Other</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">Contact</label>
+                <input type="text" name="contact" class="form-control">
+            </div>
+            <div class="col-md-12">
+                <label class="form-label fw-semibold">Address</label>
+                <textarea name="address" class="form-control" rows="3"></textarea>
+            </div>
         </div>
-        <div class="col-md-4 mb-3"><label>Contact</label><input type="text" name="contact" class="form-control"></div>
-        <div class="col-md-12 mb-3"><label>Address</label><textarea name="address" class="form-control" rows="3"></textarea></div>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Student</button>
-    <a href="select.php" class="btn btn-secondary">Back</a>
-</form>
+        <div class="mt-4 d-flex justify-content-between">
+            <a href="select.php" class="btn btn-secondary">⬅ Back</a>
+            <button type="submit" class="btn btn-primary">✅ Add Student</button>
+        </div>
+    </form>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
